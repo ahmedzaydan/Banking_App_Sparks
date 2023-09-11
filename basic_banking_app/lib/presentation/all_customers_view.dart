@@ -1,7 +1,7 @@
-import 'package:basic_banking_app/presentation/constants.dart';
-import 'package:basic_banking_app/presentation/customer_provider.dart';
-import 'package:basic_banking_app/presentation/customer_view.dart';
-import 'package:basic_banking_app/presentation/functions.dart';
+import 'package:banking_app/presentation/constants.dart';
+import 'package:banking_app/presentation/customer_provider.dart';
+import 'package:banking_app/presentation/customer_view.dart';
+import 'package:banking_app/presentation/functions.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -57,7 +57,7 @@ class AllCustomersScreen extends StatelessWidget {
           );
         },
         child: Container(
-          padding: const EdgeInsets.all(AppSize.s8),
+          padding: const EdgeInsets.all(AppSize.s12),
           decoration: BoxDecoration(
             color: ColorManager.primary,
             borderRadius: BorderRadius.circular(AppSize.s20),
@@ -67,16 +67,9 @@ class AllCustomersScreen extends StatelessWidget {
             children: [
               // Name
               customText(
+                fontSize: AppSize.s24,
                 context: context,
-                text: "Name: ${customerWatcher.allCustomers[index].name}",
-                color: ColorManager.white,
-              ),
-
-              // Current balance
-              customText(
-                context: context,
-                text:
-                    "Current Balance: ${customerWatcher.allCustomers[index].currentBalance.toString()}",
+                text: customerWatcher.allCustomers[index].name,
                 color: ColorManager.white,
               ),
             ],

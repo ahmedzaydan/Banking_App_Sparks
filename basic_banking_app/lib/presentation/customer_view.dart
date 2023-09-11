@@ -1,7 +1,7 @@
-import 'package:basic_banking_app/models/customer_model.dart';
-import 'package:basic_banking_app/presentation/customer_provider.dart';
-import 'package:basic_banking_app/presentation/functions.dart';
-import 'package:basic_banking_app/presentation/constants.dart';
+import 'package:banking_app/models/customer_model.dart';
+import 'package:banking_app/presentation/constants.dart';
+import 'package:banking_app/presentation/customer_provider.dart';
+import 'package:banking_app/presentation/functions.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -41,6 +41,7 @@ class CustomerView extends StatelessWidget {
                 ),
                 child: Center(
                   child: customText(
+                    fontSize: AppSize.s24,
                     context: context,
                     text: "Name: ${customer.name}",
                     color: ColorManager.white,
@@ -61,6 +62,7 @@ class CustomerView extends StatelessWidget {
                 ),
                 child: Center(
                   child: customText(
+                    fontSize: AppSize.s24,
                     context: context,
                     text: "Email : ${customer.email}",
                     color: ColorManager.white,
@@ -81,6 +83,7 @@ class CustomerView extends StatelessWidget {
                 ),
                 child: Center(
                   child: customText(
+                    fontSize: AppSize.s24,
                     context: context,
                     text: "Current Balance: ${customer.currentBalance}",
                     color: ColorManager.white,

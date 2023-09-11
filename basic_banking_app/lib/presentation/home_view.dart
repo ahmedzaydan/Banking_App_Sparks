@@ -1,6 +1,6 @@
-import 'package:basic_banking_app/presentation/all_customers_view.dart';
-import 'package:basic_banking_app/presentation/functions.dart';
-import 'package:basic_banking_app/presentation/constants.dart';
+import 'package:banking_app/presentation/all_customers_view.dart';
+import 'package:banking_app/presentation/constants.dart';
+import 'package:banking_app/presentation/functions.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -54,12 +54,14 @@ class HomeScreen extends StatelessWidget {
 
             // View all customers
             customElevatedButton(
-              fontSize: AppSize.s30,
+              fontSize: AppSize.s24,
               context: context,
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (_) => const AllCustomersScreen()),
+                  MaterialPageRoute(
+                    builder: (_) => const AllCustomersScreen(),
+                  ),
                 );
               },
               text: AppStrings.viewAllCustomers,

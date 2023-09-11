@@ -1,5 +1,5 @@
-import 'package:basic_banking_app/app.dart';
-import 'package:basic_banking_app/presentation/customer_provider.dart';
+import 'package:banking_app/app.dart';
+import 'package:banking_app/presentation/customer_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

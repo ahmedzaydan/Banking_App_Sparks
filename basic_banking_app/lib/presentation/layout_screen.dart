@@ -1,7 +1,7 @@
-import 'package:basic_banking_app/presentation/constants.dart';
-import 'package:basic_banking_app/presentation/functions.dart';
-import 'package:basic_banking_app/presentation/home_view.dart';
-import 'package:basic_banking_app/presentation/transactions_table_view.dart';
+import 'package:banking_app/presentation/constants.dart';
+import 'package:banking_app/presentation/functions.dart';
+import 'package:banking_app/presentation/home_view.dart';
+import 'package:banking_app/presentation/transactions_table_view.dart';
 import 'package:flutter/material.dart';
 
 class LayoutScreen extends StatefulWidget {

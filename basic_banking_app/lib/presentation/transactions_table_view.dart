@@ -1,6 +1,6 @@
-import 'package:basic_banking_app/presentation/constants.dart';
-import 'package:basic_banking_app/presentation/customer_provider.dart';
-import 'package:basic_banking_app/presentation/functions.dart';
+import 'package:banking_app/presentation/constants.dart';
+import 'package:banking_app/presentation/customer_provider.dart';
+import 'package:banking_app/presentation/functions.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
