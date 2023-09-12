@@ -47,6 +47,7 @@ Widget customText({
           fontSize: fontSize,
           color: color ?? ColorManager.black,
         ),
+    maxLines: 3,
   );
 }
 

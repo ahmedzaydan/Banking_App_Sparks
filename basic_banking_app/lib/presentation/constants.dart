@@ -13,7 +13,6 @@ class AppStrings {
   static const String initValue = 'Transfer To';
   static const String introText =
       'Welcome To The Sparks Foundation Banking App';
-  static const String myName = 'Ahmed Zaydan';
 }
 
 class ColorManager {
@@ -38,6 +37,7 @@ class AppSize {
   static const double s30 = 30.0;
   static const double s40 = 40.0;
   static const double s60 = 60.0;
+  static const double s100 = 100.0;
   static const double s300 = 300.0;
   static const double infinity = double.infinity;
 }

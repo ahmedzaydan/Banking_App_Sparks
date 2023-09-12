@@ -29,23 +29,6 @@ class HomeScreen extends StatelessWidget {
 
             const SizedBox(height: AppSize.s18),
 
-            // Developer name
-            Container(
-              decoration: BoxDecoration(
-                color: ColorManager.primary,
-                borderRadius: BorderRadius.circular(AppSize.s24),
-              ),
-              padding: const EdgeInsets.all(AppSize.s12),
-              child: customText(
-                context: context,
-                text: AppStrings.myName,
-                color: ColorManager.white,
-                fontSize: AppSize.s30,
-              ),
-            ),
-
-            const SizedBox(height: AppSize.s18),
-
             Image.asset(
               'assets/bank_image_1.jpg',
               height: AppSize.s300,

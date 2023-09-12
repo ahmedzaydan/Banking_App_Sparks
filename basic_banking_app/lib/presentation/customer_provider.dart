@@ -1,7 +1,7 @@
 import 'package:banking_app/models/customer_model.dart';
 import 'package:banking_app/models/transaction_model.dart';
-import 'package:banking_app/presentation/functions.dart';
 import 'package:banking_app/presentation/constants.dart';
+import 'package:banking_app/presentation/functions.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart';
@@ -51,7 +51,6 @@ class CustomerProvider with ChangeNotifier {
         version: 1,
         onCreate: (db, version) async {
           _database = db;
-          if (kDebugMode) print('Database $path created successfully');
 
           // Create customers table
           String customersQuery = 'CREATE TABLE customers ('
@@ -60,7 +59,6 @@ class CustomerProvider with ChangeNotifier {
               'currentBalance REAL'
               ')';
           await db.execute(customersQuery);
-          if (kDebugMode) print('Customers table created successfully');
 
           // Create transactions table
           String transactionsQuery = 'CREATE TABLE transactions ('
@@ -69,7 +67,6 @@ class CustomerProvider with ChangeNotifier {
               'amount REAL'
               ')';
           await db.execute(transactionsQuery);
-          if (kDebugMode) print('Transactions table created successfully');
 
           // Load customers initial data
           for (var customer in initCustomersList) {
@@ -87,9 +84,6 @@ class CustomerProvider with ChangeNotifier {
         onOpen: (db) async {
           _database = db;
 
-          if (kDebugMode) {
-            print('Database $path opened successfully');
-          }
           // Get customers data
           await getAllData(getCustomers: true);
 
@@ -105,7 +99,6 @@ class CustomerProvider with ChangeNotifier {
   Future<void> insertRow(String sql) async {
     try {
       await _database.execute(sql);
-      if (kDebugMode) print('Row inserted successfully');
     } catch (error) {
       if (kDebugMode) {
         print('Error while inserting row with query: $sql \nerror is: $error');
@@ -115,11 +108,6 @@ class CustomerProvider with ChangeNotifier {
 
   Future<void> getAllData({required bool getCustomers}) async {
     try {
-      if (kDebugMode) {
-        print(
-            'Getting all ${getCustomers ? 'customers' : 'transactions'} data');
-      }
-
       String sql = getCustomers
           ? 'SELECT * FROM customers'
           : 'SELECT * FROM transactions';
@@ -130,8 +118,6 @@ class CustomerProvider with ChangeNotifier {
       var value = await _database.rawQuery(sql);
       for (var item in value) {
         if (getCustomers) {
-          // if (kDebugMode) print('Customer: ${item['name'].toString()}');
-
           _customers.add(
             Customer(
               name: item['name'] as String,
@@ -141,8 +127,6 @@ class CustomerProvider with ChangeNotifier {
           );
         } else {
           // transactions
-          // if (kDebugMode) print('Transaction: ${item['amount'].toString()}');
-
           _transactions.add(
             TransactionItem(
               from: item['source'] as String,
@@ -152,10 +136,7 @@ class CustomerProvider with ChangeNotifier {
           );
         }
       }
-      if (kDebugMode) {
-        print(
-            'All ${getCustomers ? 'customers' : 'transactions'} data got successfully');
-      }
+
       notifyListeners();
     } catch (error) {
       if (kDebugMode) {
@@ -165,7 +146,6 @@ class CustomerProvider with ChangeNotifier {
     }
   }
 
-  /// -----------------------------------------------------------------------------------------------
   Future<void> updateCustomerRow({
     required String name,
     required double newBalance,
@@ -179,8 +159,6 @@ class CustomerProvider with ChangeNotifier {
       await getAllData(getCustomers: true);
 
       notifyListeners();
-
-      if (kDebugMode) print('Row $name Updated');
     } catch (error) {
       if (kDebugMode) print('Error while updating row $name: $error');
     }
@@ -216,10 +194,6 @@ class CustomerProvider with ChangeNotifier {
     await getAllData(getCustomers: false);
 
     resetValue();
-    if (kDebugMode) {
-      print(
-          "Transaction done successfully from $source to $dest with amount $amount");
-    }
 
     notifyListeners();
   }
